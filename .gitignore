@@ -1,0 +1,10 @@
+.gradle/
+.idea/
+build/
+out/
+*.iml
+.DS_Store
+.env
+.envr
+*.jks
+*.jcks
