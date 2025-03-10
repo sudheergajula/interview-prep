@@ -56,16 +56,17 @@ POST /v1/driver/live?lat=X&lng=Y
 ```
 
 ## Capacity Estimation
+Total user base is 500mil
+DAU - 100 mil Users
+Read vs Write 5:1 (500mil reads: 100mil writes)
 
 ### Storage Estimation
-1. Total user base is 500mil
-2. DAU - 100 mil (100 * 10^6)
-3. Each user takes at-least 1 ride a day - 100 mil rides
-4. Each ride generates appox 10 MB of data (10*10^6)
-5. Each day 10^12*10 = 10TB/day 
+1. Each user takes at-least 1 ride a day - 100 mil rides
+2. Each ride generates appox 10 MB of data (10*10^6)
+3. Each day 10^12*10 = 10TB/day 
 
 ### Server Estimation
-1. 100mil req each day = 10^6*100
+1. 500mil req each day = 10^6*100
 2. 1mil/86400 = 12 req/sec, 100mil req = 1200 req/sec
 3. Each req can take approx 1sec.
 4. System with 2 cores can handle 2 req/sec - 2 req/sec = 600 w/ 2cores each
