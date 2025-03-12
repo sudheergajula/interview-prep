@@ -3,7 +3,7 @@
 ## Features
 
 1. Uploading vides
-2. Viweing videos
+2. Viewing videos
 3. Searching for videos
 4. Youtube Live
 5. Youtube Music
@@ -16,16 +16,31 @@ There are 2 personas we need to deal with -
 1. Content creator: who creates and uploads content
 2. Viewer - Who views the content on platfrom
 
-### Non Fucntional
+### Non Functional
 1. System should be scalable as we expect more and more users to upload and view.
 2. Fault tolerant
 3. Highly Available
 4. Usability
 
+## Capacity Estimation
+Total Num of Users : 500 mil
+DAU - 100 mil
+
+### Storage Estimation
+Num of uploads per day per user (1 Mil) = 1 Video (1GB) = 10^9
+1 Mil uploads/day = 10^*109 = 10^15 = 1PB/day object store
+
+### Compute Estimation
+Compute fleet of encoding and decoding
+12 req/sec at 1mil req/day
+Each req approx: 1200 secs to process/video
+12 req/sec = 1200 secs/upload , approx 100 nodes FFMPEG Cluster for encoding and decoding
+
+
 ## Design
 ### Services :
 1. Upload Service - User uploads video into system
-2. Recemmondation Service - Upon login, load the user relavant videos
+2. Recommendation Service - Upon login, load the user relavant videos
 3. Ads Service - Load ads
 4. Broadcast Service - Upon upload completion, notify subscribers
 
@@ -89,26 +104,3 @@ Websockets are ideal to push data from servers to clients or when client needs t
 For this, we will need an WebScoketRegistry to handle stateful sticky session between client and server. Netflix has Zuul to handle this at scale, it works on event loop and enhanced Netty.
 
 All the events can be streamed into streams and further used to analytics, can be persisted in Cassandra/DynamoDB/ScyllaDB
-
-## Facebook livestream
-FB heavily relies on RTMP for serving content to user on live stream. 
-Note - 
-Celebrity problem - 
-when a public figure having millions of followers starts a livesteam this can cause servers to crash with too many requesting hitting origin servers. This is typically called Thundering Herd problem where there is stampede of requests onto servers that can degradation of services.
-
-To avoid this situation, content has to served from edge caches. These live video streams are converted to 3secs segemnts and stored at CDN. If there is cache miss, requestes are queued so that cache write happens, else many requests can query origin servers due to cache miss.
-
-RTMP in Action :
-1. Capture and Encoding: The live video and audio content are captured using cameras, microphones, or professional broadcasting equipment. These signals are then encoded into a digital format suitable for transmission.
-
-2. RTMP Server Configuration: The broadcaster configures an RTMP server, specifying the necessary settings such as stream keys, access control, and streaming quality parameters.
-
-3. Streaming Software Setup: Broadcasting software, such as OBS (Open Broadcaster Software) or Wirecast, is configured to establish a connection with the RTMP server. The software handles the encoding, packaging, and transmission of the live content.
-
-4. Initiating the Live Stream: With the streaming software configured, the broadcaster initiates the live stream, which establishes a connection with the RTMP server. The server receives the encoded data and prepares it for distribution.
-
-5. Viewer Engagement: Viewers access the live stream through various platforms, including websites, social media platforms, or dedicated streaming applications. The RTMP client on their end receives the video and audio streams from the server, allowing them to watch the live content in real time.
-
-6. Real-Time Interactivity: During the live stream, viewers can actively engage with the content and other participants through features such as chat, comments, likes, and interactive overlays. These interactive elements foster a dynamic and immersive viewing experience.
-
-7. Archiving and Storage: After the live stream concludes, broadcasters often have the option to archive the recorded stream for later playback. This feature enables on-demand access to previously streamed content, extending its reach beyond the live event.
