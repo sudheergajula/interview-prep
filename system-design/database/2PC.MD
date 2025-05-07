@@ -21,3 +21,4 @@ Phase -2 : COMMIT Phase
 2. When all the nodes have succeeded, it will commit its transaction. 
 3. If any one of the nodes respond with ABORT message, it will request rest of the other nodes/services to rollback their transaction.
 
+HLD
