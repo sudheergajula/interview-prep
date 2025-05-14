@@ -1,4 +1,4 @@
-# Locking
+ # Locking
 Locks allow application to synchronize their execution, so that there is an consistent and coordinated way to apply a transaction. This also helps systems to share their resources and control access of resource.
 
 
