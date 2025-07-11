@@ -53,6 +53,7 @@ Authorisation : Bearer <>
 ```
 
 ## DB Design 
+[Databases](database/databases.MD)
 
 Start with choice of your database
 
@@ -117,6 +118,8 @@ making them efficient for range queries on large datasets while using minimal sp
 
 
 ### Caching
+
+[Caching](database/caching.MD)
 
 HLD
 
