@@ -45,7 +45,7 @@ Each req approx: 1200 secs to process/video
 4. Broadcast Service - Upon upload completion, notify subscribers
 
 
-![screenshot](images/youtube.png)
+![screenshot](../images/youtube.png)
 
 Table Design
 

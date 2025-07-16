@@ -94,4 +94,4 @@ Read vs Write 5:1 (500mil reads: 100mil writes)
    - Searchable on Memtable and SST with Bloomfilter better than B-Tree Index
    - Consist hash - Upscale/Downscale with lesser Data Churn
 
-![screenshot](images/uber.png)
+![screenshot](../images/uber.png)
