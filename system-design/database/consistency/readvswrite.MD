@@ -14,7 +14,7 @@
 ---
 
 ## 🎯 2. Read-Heavy vs Write-Heavy Patterns
-![img.png](images/readvswrite.png)
+![img.png](../images/readvswrite.png)
 ### Read-Heavy Systems
 
 * **Replication + Denormalization**: Services like Spotify use geographically distributed read replicas with eventual consistency. Pinterest stores precomputed aggregates to eliminate expensive JOINs.

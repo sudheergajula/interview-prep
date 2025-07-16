@@ -9,7 +9,7 @@ load on database allowing most of these queries to be served from cache.
 It becomes important for system to make this data available in cache or load this data into cache.
 Cache loading has various access patters
 
-![screenshot](images/caching.png)
+![screenshot](../images/caching.png)
 
 
 - Cache Aside

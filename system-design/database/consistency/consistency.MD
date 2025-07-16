@@ -74,6 +74,4 @@ Strong consistency guarantees every operation reflects the latest system-wide st
 
 ---
 
-```markdown
 
-::contentReference[oaicite:0]{index=0}
